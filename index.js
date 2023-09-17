@@ -86,18 +86,23 @@ Combine the filter and map methods to perform the following tasks:
 
 Q5) Filter the numbers that are greater than or equal to 20 and then square each of them.
 */
-greaterthan20 = numbers.filter(function(num){
+
+// greaterthan20 = numbers.filter(function(num){
+//     return num >=20;
+// });//filter
+function greaterthan20(num){
     return num >=20;
-});//filter
+}
+const result1 = numbers.filter(greaterthan20);
 
-console.log(`numbers that are greater than or equal to 20 :  ${greaterthan20}`);
+console.log(`numbers that are greater than or equal to 20 :  ${result1}`);
 
-squared2 = greaterthan20.map( function(num){
+function squared2(num){
     return num * num ;
 }
-);//map
+const results = numbers.filter(greaterthan20).map(squared2);
 
-console.log(` the numbers squared : ${squared2}`);
+console.log(` the numbers squared : ${results}`);
 
 /*
 Q6) Filter the numbers that are divisible by 5 and then multiply each of them by 3.
@@ -109,4 +114,21 @@ multipliedby3 = divisibleby5.map( function(num){
 });
 
 console.log(` multiply each of them by 3 : ${multipliedby3}`);
+
+//another way 
+
+function divisible5(num){
+    return num %5 == 0;
+}
+const divis = numbers.filter(divisible5);
+console.log( `the numbers that are divisible by 5 : ${divis}`);
+
+
+function multi3(num){
+    return num*3;
+}
+
+const result3 = numbers.filter(divisible5).map(multi3);
+console.log(` multiply each of them by 3 : ${result3}`);
+
 
